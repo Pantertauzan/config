@@ -54,12 +54,23 @@ fonts = {
 services.gvfs.enable = true;
 services.udisks2.enable = true;
 services.devmon.enable = true;
+xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
+};
+
 
 #PACKAGES
 environment.systemPackages = with pkgs; [
 	#system
 	systemd
 	util-linux
+	xdg-desktop-portal-wlr
+	xdg-desktop-portal
+	xdg-desktop-portal-gtk
 	#lib
 	libnotify	
 	#cli
@@ -81,14 +92,12 @@ environment.systemPackages = with pkgs; [
 	swaybg
 	#screenshot tool
 	slurp
-	satty
 	grim
 	xdg-user-dirs
 	wayfreeze
 	#clipboard manager
-	wofi
-	cliphist
 	wl-clipboard
+	copyq
 	#system utils
 	git
 	zip
@@ -102,9 +111,11 @@ environment.systemPackages = with pkgs; [
 	#waybar
 	waybar
 	#file manager
-	pcmanfm
+	nautilus
 	#text viever
 	mousepad
+	#img viewer
+	swayimg
 ];
 
 #FLATHUB
