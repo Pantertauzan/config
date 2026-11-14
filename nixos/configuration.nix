@@ -84,6 +84,7 @@ environment.systemPackages = with pkgs; [
 	satty
 	grim
 	xdg-user-dirs
+	wayfreeze
 	#clipboard manager
 	wofi
 	cliphist
