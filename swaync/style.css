@@ -1,0 +1,215 @@
+/* 
+ * SwayNC Theme - Fixed Height & Crisp Icons
+ */
+
+* {
+  font-family: monospace;
+  font-size: 13px;
+  color: #cdd6f4;
+  font-weight: bold;
+}
+
+/* Control Center Window - Constrained Height */
+.control-center {
+  background: rgba(30, 30, 46, 0.96);
+  border: 2px solid #45475a;
+  border-radius: 12px;
+  padding: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  min-height: 100px;
+}
+
+/* Header Title Bar */
+.widget-title {
+  margin: 4px 6px;
+  font-size: 14px;
+}
+
+.widget-title button {
+  background: #181825;
+  border: 1px solid #45475a;
+  color: #a6adc8;
+  border-radius: 6px;
+  padding: 3px 8px;
+  transition: all 0.2s ease;
+}
+
+.widget-title button:hover {
+  background: #89b4fa;
+  color: #1e1e2e;
+  border-color: #89b4fa;
+}
+
+/* Notifications Box - Scrollable when needed, hugs content when short */
+.notifications {
+  padding: 4px;
+  margin: 0px;
+}
+
+/* Notification Card Container & Whole-Card Hover Lightup */
+.notification-row {
+  outline: none;
+  margin: 4px 0;
+  background: transparent;
+}
+
+.notification {
+  background: #181825;
+  border: 1px solid #45475a;
+  border-radius: 8px;
+  padding: 8px 10px;
+  transition: all 0.2s ease;
+}
+
+/* Full card lighting on hover */
+.notification-row:hover .notification,
+.notification:hover {
+  background: #313244;
+  border-color: #89b4fa;
+  box-shadow: 0 0 8px rgba(137, 180, 250, 0.2);
+}
+
+.notification-content {
+  margin: 2px;
+  background: transparent;
+}
+
+.summary {
+  font-size: 13px;
+  color: #89b4fa;
+}
+
+.body {
+  font-size: 12px;
+  color: #cdd6f4;
+}
+
+.time {
+  font-size: 10px;
+  color: #a6adc8;
+}
+
+/* Fix Blurry Placeholder / Images by locking explicit crisp sizing */
+.notification image,
+.widget-mpris image {
+  border-radius: 6px;
+  margin-right: 8px;
+}
+
+/* Target the "No Notifications" placeholder image specifically to stop upscaling blur */
+.placeholder image {
+  min-width: 48px;
+  min-height: 48px;
+  max-width: 48px;
+  max-height: 48px;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+/* Placeholder text */
+.placeholder {
+  color: #a6adc8;
+  font-size: 12px;
+  padding: 24px 0;
+}
+
+/* Do Not Disturb Toggle Container */
+.widget-dnd {
+  background: #181825;
+  border: 1px solid #45475a;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin: 4px;
+}
+
+/* High Visibility Switch Styling */
+switch {
+  background: #45475a;
+  border: 1px solid #a6adc8;
+  border-radius: 12px;
+  min-width: 44px;
+  min-height: 20px;
+  transition: all 0.2s ease;
+}
+
+switch slider {
+  background: #cdd6f4;
+  border-radius: 50%;
+  min-width: 16px;
+  min-height: 16px;
+  margin: 2px;
+  transition: all 0.2s ease;
+}
+
+switch:checked {
+  background: #89b4fa;
+  border-color: #b4befe;
+}
+
+switch:checked slider {
+  background: #1e1e2e;
+}
+
+/* High Visibility Volume & Backlight Sliders */
+.widget-volume,
+.widget-backlight {
+  background: #181825;
+  border: 1px solid #45475a;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 4px;
+}
+
+trough {
+  background: #45475a;
+  border-radius: 4px;
+  min-height: 8px;
+}
+
+highlight {
+  background: #89b4fa;
+  border-radius: 4px;
+}
+
+slider {
+  background: #cdd6f4;
+  border: 1px solid #45475a;
+  border-radius: 50%;
+  min-width: 14px;
+  min-height: 14px;
+}
+
+/* Quick Toggle Button Grid */
+.widget-buttons-grid {
+  background: #181825;
+  border: 1px solid #45475a;
+  border-radius: 8px;
+  padding: 6px;
+  margin: 4px;
+}
+
+.widget-buttons-grid flowboxchild button {
+  background: #1e1e2e;
+  border: 1px solid #45475a;
+  color: #cdd6f4;
+  border-radius: 6px;
+  padding: 6px;
+  margin: 3px;
+  min-width: 40px;
+  min-height: 40px;
+  transition: all 0.2s ease;
+}
+
+.widget-buttons-grid flowboxchild button:hover {
+  background: #89b4fa;
+  color: #1e1e2e;
+  border-color: #89b4fa;
+}
