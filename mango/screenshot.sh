@@ -15,7 +15,7 @@ if [[ -z "$geometry" ]]; then
   exit 1
 fi
 
-screenshot="$HOME/Pictures/Screenshots/$(date +%d-%m-%Y).png"
+screenshot="$HOME/Pictures/Screenshots/$(date +%d-%m-%Y-%s).png"
 
 if grim -g "$geometry" "$screenshot" &&
    wl-copy < "$screenshot"; then

@@ -18,6 +18,7 @@ grub = {
     	efiSupport = true;
     	device = "nodev"; 
     	useOSProber = true; 
+	splashImage = ./napoleon.png;
 };  
 efi.canTouchEfiVariables = true;
 efi.efiSysMountPoint = "/boot";
@@ -33,22 +34,10 @@ time.timeZone = "Europe/Chisinau";
 networking.networkmanager.enable = true;
 
 #FONT
-fonts = {
-  fontDir.enable = true;
-  enableDefaultPackages = true;
-  packages = with pkgs; [
-    corefonts
-  ];
-
-  fontconfig = {
-    defaultFonts = {
-      sansSerif = [ "Arial" "Calibri" ];
-      serif     = [ "Times New Roman" "Cambria" ];
-      monospace = [ "Courier New" "Consolas" ];
-    };
-  };
-};
-
+fonts.packages = with pkgs; [
+    	noto-fonts-color-emoji
+    	twemoji-color-font
+];
 
 #FILE MANAGER
 services.gvfs.enable = true;
@@ -65,6 +54,12 @@ xdg.portal = {
 
 #PACKAGES
 environment.systemPackages = with pkgs; [
+	#network
+	networkmanagerapplet
+	#gtk
+	nwg-look
+	tokyonight-gtk-theme
+	catppuccin-gtk
 	#system
 	systemd
 	util-linux
@@ -82,6 +77,9 @@ environment.systemPackages = with pkgs; [
 	alacritty
 	#wayland stuff
 	wayland
+	wtype
+	wl-clipboard
+	wayfreeze
 	#notification daemon
 	swaynotificationcenter
 	rofi
@@ -94,9 +92,7 @@ environment.systemPackages = with pkgs; [
 	slurp
 	grim
 	xdg-user-dirs
-	wayfreeze
 	#clipboard manager
-	wl-clipboard
 	copyq
 	#system utils
 	git
@@ -116,6 +112,9 @@ environment.systemPackages = with pkgs; [
 	mousepad
 	#img viewer
 	swayimg
+	#gnome related
+	gnome-calendar
+	smile
 ];
 
 #FLATHUB
@@ -172,11 +171,12 @@ hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.production;
 };
 
+
 #USERS
 users.users.nanon = {
 	isNormalUser = true;
 	description = "nixos-nanon";
-	extraGroups = [ "wheel" "networkmanager" "audio" ];
+	extraGroups = [ "wheel" "networkmanager" "audio" "input" "uinput" ];
 };
 
 #SSH	
@@ -199,6 +199,9 @@ programs.ssh = {
 	'';
 };
 
+#IDK
+programs.dconf.enable = true;
+
+
 system.stateVersion = "26.05";
 }
-

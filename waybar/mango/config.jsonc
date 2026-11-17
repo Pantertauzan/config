@@ -15,12 +15,21 @@
     "modules-right": [
         "group/expand",
         "tray",
-        "pulseaudio#source",
-        "cpu",
-        "memory",
-        "clock",
+        "group/stats",
+        "network",
         "custom/power"
     ],
+
+    "group/stats": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio#source",
+            "cpu",
+            "memory",
+            "custom/gpu",
+            "clock"
+        ]
+    },
 
     "mango/window": {
         "format": "{app_id}  {title}",
@@ -45,11 +54,11 @@
     "pulseaudio#source": {
         "format": "{icon} {volume}%",
         "on-click": "pavucontrol",
-        "format-muted": "󰝟",
+        "format-muted": "  ",
         "tooltip": true,
         "tooltip-format": "Volume: {volume}%",
         "format-icons": {
-            "headphone": "",
+            "headphone": "",
             "default": ["", "", ""]
         },
         "scroll-step": 5
@@ -58,17 +67,18 @@
     "memory": {
         "format": "mem: {used:0.1f}G/{total:0.1f}G",
         "tooltip": false,
-        "interval": 4
+        "interval": 2
     },
 
     "cpu": {
         "format": "cpu: {usage}%",
-        "tooltip": false
+        "tooltip": false,
+        "interval": 2
     },
 
     "clock": {
         "format": "{:%H:%M   %d:%m:%Y}",
-        "format-alt": "{:%A, %B %d, %Y (%R)} 󰃰",
+        "on-click": "gnome-calendar",
         "tooltip": false
     },
 
@@ -76,6 +86,19 @@
         "format": "<span font='16'>⏻</span>",
         "tooltip": "Power menu",
         "on-click": "~/.config/rofi/applets/bin/powermenu.sh"
+    },
+
+    "custom/gpu": {
+        "format": "gpu: {}%",
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "interval": 2
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": " eth",
+        "format-disconnected": "⚠  offline",
+        "tooltip": false,
+        "on-click": "nm-connection-editor"
     }
 }
-
