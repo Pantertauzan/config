@@ -54,6 +54,9 @@ xdg.portal = {
 
 #PACKAGES
 environment.systemPackages = with pkgs; [
+	#steam
+	steamcmd
+    	steam-tui
 	#network
 	networkmanagerapplet
 	#gtk
@@ -116,6 +119,10 @@ environment.systemPackages = with pkgs; [
 	gnome-calendar
 	smile
 ];
+
+#STEAM
+programs.steam.enable = true; 
+
 
 #FLATHUB
 services.flatpak.enable = true;
